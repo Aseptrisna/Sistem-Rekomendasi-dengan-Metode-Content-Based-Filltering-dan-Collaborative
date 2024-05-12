@@ -6,7 +6,81 @@
     <title>Motor Recommendation Result</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* CSS untuk tampilan produk */
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 15px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        .card {
+            border: none;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-size: 1.2rem;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+        .card-text {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        /* CSS untuk membuat tanda sejajar di dalam tabel */
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        .info-label {
+            font-weight: bold;
+            width: 30%;
+            text-align: right;
+        }
+        .info-value {
+            width: 70%;
+        }
+        /* Penambahan untuk membuat tampilan lebih menarik */
+        .motor-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+        .detail-button {
+            transition: background-color 0.3s;
+        }
+        .detail-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -16,17 +90,38 @@
             {% for index, recommendation in recommendations.iterrows() %}
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
+                    <!-- <img src="placeholder.jpg" alt="{{ recommendation['model'] }}" class="motor-image"> -->
                     <div class="card-body">
                         <h5 class="card-title">{{ recommendation['model'] }}</h5>
-                        <p class="card-text">Brand: {{ recommendation['brand'] }}</p>
-                        <p class="card-text">Tipe: {{ recommendation['body_type'] }}</p>
-                        <p class="card-text">Harga: Rp {{ recommendation['price'] }}</p>
-                        <p class="card-text">Kilometer: {{ recommendation['km'] }}</p>
-                        <p class="card-text">Mesin: {{ recommendation['vehicle_engine'] }}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Detail</button>
-                            </div>
+                        <table>
+                            <tr>
+                                <td class="info-label">Brand:</td>
+                                <td class="info-value">{{ recommendation['brand'] }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Tahun:</td>
+                                <td class="info-value">{{ recommendation['year'] }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Harga:</td>
+                                <!-- Konversi harga dari USD ke Rupiah -->
+                                <td class="info-value harga-rupiah">Rp {{ recommendation['price'] * 16055 }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Kilometer:</td>
+                                <td class="info-value">{{ recommendation['km'] }} KM</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Tipe:</td>
+                                <td class="info-value">{{ recommendation['body_type'] }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Mesin:</td>
+                                <td class="info-value">{{ recommendation['vehicle_engine'] }} CC</td>
+                            </tr>
+                        </table>
+                        <div class="d-flex justify-content-center align-items-center mt-3">
+                            <button type="button" class="btn btn-sm btn-outline-secondary detail-button">Detail</button>
                         </div>
                     </div>
                 </div>
@@ -34,5 +129,13 @@
             {% endfor %}
         </div>
     </div>
+    <script>
+        // Mengubah harga ke format Rupiah
+        var hargaRupiahElements = document.querySelectorAll('.harga-rupiah');
+        hargaRupiahElements.forEach(function(element) {
+            var harga = parseInt(element.textContent.slice(3)); // Hilangkan Rp dari teks dan ubah menjadi angka
+            element.textContent = 'Rp ' + harga.toLocaleString('id-ID');
+        });
+    </script>
 </body>
 </html>
