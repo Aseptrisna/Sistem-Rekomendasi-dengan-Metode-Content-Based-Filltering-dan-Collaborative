@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Recommendation Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* CSS untuk tampilan produk */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Rekomendasi Motor</h1>
+        <div class="row">
+            {% for index, recommendation in recommendations.iterrows() %}
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ recommendation['model'] }}</h5>
+                        <p class="card-text">Brand: {{ recommendation['brand'] }}</p>
+                        <p class="card-text">Tipe: {{ recommendation['body_type'] }}</p>
+                        <p class="card-text">Harga: Rp {{ recommendation['price'] }}</p>
+                        <p class="card-text">Kilometer: {{ recommendation['km'] }}</p>
+                        <p class="card-text">Mesin: {{ recommendation['vehicle_engine'] }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

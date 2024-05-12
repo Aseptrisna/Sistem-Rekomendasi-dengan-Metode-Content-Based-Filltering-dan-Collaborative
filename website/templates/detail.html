@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Rekomendasi</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .recommendation-card {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .recommendation-card h2 {
+            margin-top: 0;
+        }
+        .recommendation-card p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detail Rekomendasi</h1>
+        <div class="recommendation-card">
+            <h2>{{ recommendation.brand }} {{ recommendation.model }}</h2>
+            <p>Tahun: {{ recommendation.year }}</p>
+            <p>Harga: Rp {{ recommendation.price }}</p>
+            <p>Kilometer: {{ recommendation.km }}</p>
+            <p>Tipe Badan: {{ recommendation.body_type }}</p>
+            <p>Engine: {{ recommendation.vehicle_engine }}</p>
+        </div>
+    </div>
+</body>
+</html>
