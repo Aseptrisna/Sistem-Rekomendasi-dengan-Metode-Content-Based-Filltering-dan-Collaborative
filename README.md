@@ -15,3 +15,5 @@ Sebelum menjalankan aplikasi, pastikan Anda telah menginstall hal berikut:
    -content_based_worker.py
    -python worker_text_content.py
    -cd website python main.py
+
+![image](https://github.com/Aseptrisna/worker-content-based-filltering-dan-collaborative/assets/37206482/ceffdf3a-c65b-485b-8f0a-021c93fc658f)
