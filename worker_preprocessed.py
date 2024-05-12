@@ -25,7 +25,7 @@ def preprocess_text(text):
         return ''  # Return empty string for NaN values
 
 # Load data from CSV
-data = pd.read_csv('model_motor.csv')
+data = pd.read_csv('./data/model_motor.csv')
 
 # Define allowed categories for body_type
 allowed_categories = ['scooters', 'trail', 'adventure touring', 'naked', 'sport', 'super sport', 'super touring']
@@ -50,4 +50,4 @@ for column in numerical_columns:
 print(data.head())
 
 # Save processed data to new CSV file
-data.to_csv('model_motor_preprocessed.csv', index=False)
+data.to_csv('./data_result/model_motor_preprocessed.csv', index=False)
