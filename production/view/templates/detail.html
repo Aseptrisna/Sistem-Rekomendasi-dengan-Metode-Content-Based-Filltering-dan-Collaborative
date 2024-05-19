@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Kendaraan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Detail Kendaraan</h1>
+    <div class="vehicle-details">
+        <h2>{{ vehicle.name }}</h2>
+        <p>{{ vehicle.brand }} - {{ vehicle.model }} - {{ vehicle.year }}</p>
+        <p>{{ vehicle.body_type }} - {{ vehicle.km }} km</p>
+        <p>Engine: {{ vehicle.vehicle_engine }}</p>
+    </div>
+    <h2>Rekomendasi lainnya:</h2>
+    <div class="recommendations">
+        {% for recommendation in recommendations %}
+            <div class="recommendation">
+                <h3>{{ recommendation.name }}</h3>
+                <p>{{ recommendation.brand }} - {{ recommendation.model }} - {{ recommendation.year }}</p>
+                <p>{{ recommendation.body_type }} - {{ recommendation.km }} km</p>
+                <a href="/detail/{{ recommendation.unique_id }}">Detail</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
