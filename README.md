@@ -17,3 +17,22 @@ Sebelum menjalankan aplikasi, pastikan Anda telah menginstall hal berikut:
    -cd website python main.py
 
 ![image](https://github.com/Aseptrisna/worker-content-based-filltering-dan-collaborative/assets/37206482/ceffdf3a-c65b-485b-8f0a-021c93fc658f)
+
+## Langkah-Langkah 
+
+- 1. Preprocessing Data (Tokenizing, Stopwordremoval, Stemming).
+- 2. Membuat Model Content-Based Filtering dengan TF-IDF
+- 3. Membuat Model Collaborative Filtering dengan Cosine Similarity
+- 4. Membuat Website dengan Flask dan Implementasi Model Content-Based Filtering dan Collaborative Filtering
+ 
+## RUN CODE 
+
+- 1. Clone Project, lalu pindah branch ke production, lalu install package yg di butuhkan.
+- 2. Jalan Preprocessing Data dengan command :cd production python preprocessing_data.py
+- 3. Jalan pembuatan Model Content-Based Filtering dengan TF-IDF dengan command :python Content-Based.py
+- 4. Jalan pembuatan Model Collaborative Filtering dengan Cosine Similarity dengan command:python Collaborative-Filtering.py
+- 5. Jalankan command :cd production cd view python main.py
+
+
+
+# Bandung Indonesia
