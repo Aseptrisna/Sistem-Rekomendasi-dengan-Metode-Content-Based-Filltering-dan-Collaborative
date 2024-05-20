@@ -1,22 +1,172 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hasil Pencarian</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Motor result Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 15px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        .card {
+            border: none;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-size: 1.2rem;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+        .card-text {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        /* CSS untuk membuat tanda sejajar di dalam tabel */
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        .info-label {
+            font-weight: bold;
+            width: 30%;
+            text-align: right;
+        }
+        .info-value {
+            width: 70%;
+        }
+        /* Penambahan untuk membuat tampilan lebih menarik */
+        .motor-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+        .detail-button {
+            transition: background-color 0.3s;
+        }
+        .detail-button:hover {
+            background-color: #0056b3;
+        }
+        .header {
+            background-color: #d4e1ef;
+            color: #0a0909;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .footer {
+            background-color: #d4e1ef;
+            color: #0f0d0d;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hasil Pencarian</h1>
-    <div class="results">
-        {% for result in results %}
-            <div class="result">
-                <h2>{{ result.name }}</h2>
-                <p>{{ result.brand }} - {{ result.model }} - {{ result.year }}</p>
-                <p>{{ result.body_type }} - {{ result.km }} km</p>
-                <a href="/detail/{{ result.unique_id }}">Detail</a>
+    <div class="container">
+        
+        <div class="header">
+            <h1>Hasil Rekomendasi Sepeda Motor</h1>
+        </div>
+        <div class="row">
+            {% for index, result in results.iterrows() %}
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <!-- <img src="placeholder.jpg" alt="{{ result['model'] }}" class="motor-image"> -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ result['model'] }}</h5>
+                        <table>
+                            <tr>
+                                <td class="info-label">Brand:</td>
+                                <td class="info-value">{{ result['brand'] }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Tahun:</td>
+                                <td class="info-value">{{ result['year'] }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Harga:</td>
+                                <!-- Konversi harga dari USD ke Rupiah -->
+                                <td class="info-value harga-rupiah">Rp {{ result['price'] * 16055 }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Kilometer:</td>
+                                <td class="info-value">{{ result['km']|handle_km }} KM</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Tipe:</td>
+                                <td class="info-value">{{ result['body_type'] }}</td>
+                            </tr>
+                            <tr>
+                                <td class="info-label">Mesin:</td>
+                                <td class="info-value">{{ result['vehicle_engine'] }} CC</td>
+                            </tr>
+                        </table>
+                        <div class="d-flex justify-content-center align-items-center mt-3">
+                            <a href="/detail/{{ result['unique__id'] }}" class="btn btn-sm btn-outline-secondary detail-button">Detail</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
+    <div class="footer">
+        <p>&copy; 2024 Rekomendasi Sepeda Motor</p>
+    </div>
+    <script>
+        // Mengubah harga ke format Rupiah
+        var hargaRupiahElements = document.querySelectorAll('.harga-rupiah');
+        hargaRupiahElements.forEach(function(element) {
+            var harga = parseInt(element.textContent.slice(3)); // Hilangkan Rp dari teks dan ubah menjadi angka
+            element.textContent = 'Rp ' + harga.toLocaleString('id-ID');
+        });
+    </script>
 </body>
 </html>

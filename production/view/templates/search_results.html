@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pencarian</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Hasil Pencarian</h1>
+    <div class="results">
+        {% for result in results %}
+            <div class="result">
+                <h2>{{ result.name }}</h2>
+                <p>{{ result.brand }} - {{ result.model }} - {{ result.year }}</p>
+                <p>{{ result.body_type }} - {{ result.km }} km</p>
+                <a href="/detail/{{ result.unique_id }}">Detail</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

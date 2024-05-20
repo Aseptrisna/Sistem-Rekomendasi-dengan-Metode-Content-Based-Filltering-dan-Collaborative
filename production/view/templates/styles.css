@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    margin: 20px auto;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.result {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+.result h2 {
+    margin-bottom: 5px;
+}
+
+.result p {
+    margin: 5px 0;
+}
+
+.result a {
+    display: block;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.vehicle-details {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.vehicle-details h2 {
+    margin-bottom: 5px;
+}
+
+.recommendations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recommendation {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+.recommendation h3 {
+    margin-bottom: 5px;
+}
+
+.recommendation p {
+    margin: 5px 0;
+}
+
+.recommendation a {
+    display: block;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px;
+    text-decoration: none;
+}
