@@ -3,14 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Rekomendasi Kendaraan</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Sistem Rekomendasi Sepeda Motor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #d4e1ef;
+            color: #343a40;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 0 0 10px 10px;
+        }
+        .footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sistem Rekomendasi Kendaraan</h1>
-    <form action="/search" method="POST">
-        <input type="text" name="keyword" placeholder="Cari kendaraan...">
-        <button type="submit">Cari</button>
-    </form>
+    <div class="container">
+        <h1>Sistem Rekomendasi Sepeda Motor</h1>
+        <form action="/search" method="post">
+            <input type="text" name="keyword" placeholder="Masukkan motor yang ingin Anda cari...">
+            <button type="submit">Cari</button>
+        </form>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Rekomendasi Sepeda Motor</p>
+    </div>
 </body>
 </html>
