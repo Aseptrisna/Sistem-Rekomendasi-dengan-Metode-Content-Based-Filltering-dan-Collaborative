@@ -35,3 +35,26 @@ Sebelum menjalankan aplikasi, pastikan Anda telah menginstall hal berikut:
 - 5. Jalankan command :cd production cd view python main.py
 
 
+## Hasil UI WEBSITE
+# 1. FORM PENCARIAN
+
+![image](https://github.com/Aseptrisna/Sistem-Rekomendasi-dengan-Metode-Content-Based-Filltering-dan-Collaborative/assets/37206482/d7849e0e-726e-4ac6-bef7-0b3d912643f9)
+
+# 2. Hasil Rekomendasi Content-Based Filtering
+
+![image](https://github.com/Aseptrisna/Sistem-Rekomendasi-dengan-Metode-Content-Based-Filltering-dan-Collaborative/assets/37206482/0df083b4-fe59-47cf-b6c1-715208f47893)
+
+![image](https://github.com/Aseptrisna/Sistem-Rekomendasi-dengan-Metode-Content-Based-Filltering-dan-Collaborative/assets/37206482/ae284cc4-9cac-436b-b2be-dcf52b7716d8)
+
+![image](https://github.com/Aseptrisna/Sistem-Rekomendasi-dengan-Metode-Content-Based-Filltering-dan-Collaborative/assets/37206482/d93109b3-614f-4d31-99a8-64ab4fa519e9)
+
+# 3. Hasil Rekomendasi Collaborative Filtering 
+
+![image](https://github.com/Aseptrisna/Sistem-Rekomendasi-dengan-Metode-Content-Based-Filltering-dan-Collaborative/assets/37206482/fe49a54f-7ddc-47d2-8664-7386234a231c)
+
+![image](https://github.com/Aseptrisna/Sistem-Rekomendasi-dengan-Metode-Content-Based-Filltering-dan-Collaborative/assets/37206482/a0156eb3-04a9-4907-9303-56f8290405bd)
+
+
+
+
+
